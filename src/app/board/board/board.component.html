@@ -1,0 +1,25 @@
+<div class="d-flex flex-column border border-2">
+    <div *ngFor="let row of board.matrix; let rowIndex = index" class="d-flex border-bottom" [ngClass]="{
+        'border-2': (rowIndex + 1) % 3 === 0 && rowIndex !== 8,
+        'border-bottom': rowIndex !== 8,
+        'border-0': rowIndex === 8,
+        'selected': rowIndex === selectedCell.row }">
+        <div *ngFor="let cell of row; let colIndex = index" class="cell" [ngClass]="{
+            'border-2': (colIndex + 1) % 3 === 0 && colIndex !== 8,
+            'border-end': colIndex !== 8,
+            'border-0': colIndex === 8,
+            'selected': colIndex === selectedCell.column}" (click)="onCellClick(rowIndex, colIndex)">
+            @if (cell.userValue || (cell.visible ? cell.value : '')) {
+                <span class="value">
+                    {{ cell.userValue ?? (cell.visible ? cell.value : '') }}
+                </span>
+            } @else {
+                <div class="notes-container">
+                    @for (note of cell.systemNotes; track note.value) {
+                        <span>{{ note.value }}</span>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

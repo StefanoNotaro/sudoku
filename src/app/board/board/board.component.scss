@@ -1,5 +1,15 @@
 :host {
-    --cell-size: 3rem
+    --cell-size: 2rem;
+    --notes-font-size: .6rem;
+    --notes-padding: 0 3px;
+}
+
+@media (min-width: 576px) {
+    :host {
+        --cell-size: 3rem;
+        --notes-font-size: .75rem;
+        --notes-padding: 0 4px;
+    }
 }
 
 .cell {
@@ -18,13 +28,13 @@
     }
 
     .notes-container {
-        font-size: .75rem;
+        font-size: var(--notes-font-size);
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         line-height: 1.1;
 
         * {
-            padding: 0 4px;
+            padding: var(--notes-padding);
         }
     }
 }

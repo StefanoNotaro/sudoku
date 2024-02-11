@@ -1,7 +1,8 @@
 :host {
     --cell-size: 2rem;
     --notes-font-size: .6rem;
-    --notes-padding: 0 3px;
+    --notes-padding: 0 2px;
+    --notes-line-height: 1;
 }
 
 @media (min-width: 576px) {
@@ -9,6 +10,7 @@
         --cell-size: 3rem;
         --notes-font-size: .75rem;
         --notes-padding: 0 4px;
+        --notes-line-height: 1.2;
     }
 }
 
@@ -31,7 +33,7 @@
         font-size: var(--notes-font-size);
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        line-height: 1.1;
+        line-height: var(--notes-line-height);
 
         * {
             padding: var(--notes-padding);

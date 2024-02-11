@@ -7,7 +7,7 @@ export class Board {
     constructor() {
         this._matrix = new Array<ISquare[]>(9);
         for (let i = 0; i < 9; i++) {
-            this._matrix[i] = [... new Array<ISquare>(9)].map((x, index) => {
+            this._matrix[i] = [... new Array<ISquare>(9)].map<ISquare>((x, index) => {
                 const squareValue = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
                 return <ISquare>{
                     userValue: undefined,
